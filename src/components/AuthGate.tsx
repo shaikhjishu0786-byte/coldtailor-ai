@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Sparkles, Building, Target, Loader2, AlertCircle, Zap } from 'lucide-react';
+import { Sparkles, Building, Target, Loader2, AlertCircle, CheckCircle, Zap } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 
 type AuthMode = 'signin' | 'signup';
@@ -12,10 +12,12 @@ export function AuthGate() {
   const [role, setRole] = useState<UserRole>('jobseeker');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
+    setMessage(null);
 
     if (!email.trim() || !password.trim()) {
       setError('Please enter your email and password.');
@@ -31,7 +33,7 @@ export function AuthGate() {
 
     try {
       if (mode === 'signup') {
-        const { error: signUpError } = await supabase.auth.signUp({
+        const { data, error: signUpError } = await supabase.auth.signUp({
           email: email.trim(),
           password,
           options: {
@@ -39,6 +41,12 @@ export function AuthGate() {
           },
         });
         if (signUpError) throw signUpError;
+
+        if (data?.user && (!data.session)) {
+          setMessage('Account created! Please check your email inbox (and spam folder) to confirm your account.');
+        } else {
+          setMessage('Account created successfully! Logging you in...');
+        }
       } else {
         const { error: signInError } = await supabase.auth.signInWithPassword({
           email: email.trim(),
@@ -83,13 +91,13 @@ export function AuthGate() {
             {/* Mode toggle */}
             <div className="mb-6 flex rounded-xl border border-slate-800 bg-slate-950/50 p-1">
               <button
-                onClick={() => { setMode('signin'); setError(null); }}
+                onClick={() => { setMode('signin'); setError(null); setMessage(null); }}
                 className={`flex-1 rounded-lg px-4 py-2 text-sm font-semibold transition-all ${mode === 'signin' ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'}`}
               >
                 Sign In
               </button>
               <button
-                onClick={() => { setMode('signup'); setError(null); }}
+                onClick={() => { setMode('signup'); setError(null); setMessage(null); }}
                 className={`flex-1 rounded-lg px-4 py-2 text-sm font-semibold transition-all ${mode === 'signup' ? 'bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950' : 'text-slate-400 hover:text-slate-200'}`}
               >
                 Sign Up
@@ -158,7 +166,15 @@ export function AuthGate() {
                 />
               </div>
 
-              {/* Error */}
+              {/* Success Message Alert */}
+              {message && (
+                <div className="flex items-start gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-3 text-sm text-emerald-300">
+                  <CheckCircle className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-400" />
+                  <span>{message}</span>
+                </div>
+              )}
+
+              {/* Error Alert */}
               {error && (
                 <div className="flex items-start gap-2 rounded-xl border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-300">
                   <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
