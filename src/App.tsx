@@ -1117,6 +1117,25 @@ export default function App() {
                 ? 'ColdTailor Talent ATS - AI-powered candidate screening for modern teams.'
                 : 'ColdTailor AI - Tailor your resume & land more interviews.'}
             </p>
+          
+            {/* CodeHype Badge */}
+            <div className="flex justify-center">
+              <a
+                href="https://www.codehype.ai/product/coldtailor-ai?utm_source=codehype_badge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://www.codehype.ai/badges/coldtailor-ai.svg?variant=find-us&v=20"
+                  alt="Featured on CodeHype"
+                  width={180}
+                  height={65}
+                  loading="lazy"
+                  decoding="async"
+                  className="inline-block border-0 max-w-[180px] h-auto"
+                />
+              </a>
+            </div>
           </div>
         </footer>
       </div>
