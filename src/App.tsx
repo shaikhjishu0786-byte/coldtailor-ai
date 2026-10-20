@@ -1117,6 +1117,23 @@ export default function App() {
                 ? 'ColdTailor Talent ATS - AI-powered candidate screening for modern teams.'
                 : 'ColdTailor AI - Tailor your resume & land more interviews.'}
             </p>
+
+            {/* IndieOrbit Badge */}
+<div className="flex justify-center my-6">
+  <a 
+    href="https://indieorbit.com" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <img 
+      src="https://indieorbit.com/badge.svg" 
+      alt="Featured on IndieOrbit" 
+      width="180" 
+      height="54" 
+      className="hover:opacity-90 transition-opacity"
+    />
+  </a>
+</div>
           
             {/* CodeHype Badge */}
             <div className="flex justify-center">
