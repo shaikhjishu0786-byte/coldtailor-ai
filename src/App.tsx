@@ -1109,34 +1109,18 @@ export default function App() {
           )}
         </main>
 
-        {/* Footer */}
+      {/* Footer */}
         <footer className="border-t border-slate-800/60 py-6">
-          <div className="flex flex-col items-center gap-3">
+          <div className="flex flex-col items-center gap-4">
             <p className="text-center text-xs text-slate-500">
               {isRecruiterMode
                 ? 'ColdTailor Talent ATS - AI-powered candidate screening for modern teams.'
                 : 'ColdTailor AI - Tailor your resume & land more interviews.'}
             </p>
 
-            {/* IndieOrbit Badge */}
-<div className="flex justify-center my-6">
-  <a 
-    href="https://indieorbit.com" 
-    target="_blank" 
-    rel="noopener noreferrer"
-  >
-    <img 
-      src="https://indieorbit.com/badge.svg" 
-      alt="Featured on IndieOrbit" 
-      width="180" 
-      height="54" 
-      className="hover:opacity-90 transition-opacity"
-    />
-  </a>
-</div>
-          
-            {/* CodeHype Badge */}
-            <div className="flex justify-center">
+            {/* Badges Container */}
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              {/* CodeHype Badge */}
               <a
                 href="https://www.codehype.ai/product/coldtailor-ai?utm_source=codehype_badge"
                 target="_blank"
@@ -1149,7 +1133,24 @@ export default function App() {
                   height={65}
                   loading="lazy"
                   decoding="async"
-                  className="inline-block border-0 max-w-[180px] h-auto"
+                  className="inline-block border-0 max-w-[180px] h-auto transition-transform hover:scale-105"
+                />
+              </a>
+
+              {/* IndieOrbit Badge */}
+              <a
+                href="https://indieorbit.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://indieorbit.com/badge.svg"
+                  alt="Featured on IndieOrbit"
+                  width={180}
+                  height={65}
+                  loading="lazy"
+                  decoding="async"
+                  className="inline-block border-0 max-w-[180px] h-auto transition-transform hover:scale-105"
                 />
               </a>
             </div>
