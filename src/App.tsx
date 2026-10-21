@@ -1119,7 +1119,7 @@ export default function App() {
             </p>
 
             {/* Badges Container */}
-            <div className="flex flex-wrap items-center justify-center gap-4">
+<div className="flex flex-wrap items-center justify-center gap-10 sm:gap-12">
               {/* CodeHype Badge */}
               <a
                 href="https://www.codehype.ai/product/coldtailor-ai?utm_source=codehype_badge"
