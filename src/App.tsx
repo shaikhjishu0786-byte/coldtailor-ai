@@ -1139,12 +1139,12 @@ export default function App() {
 
               {/* IndieOrbit Badge */}
               <a
-                href="https://indieorbit.com"
+                href="https://indieorbit.in"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <img
-                  src="https://indieorbit.com/badge.svg"
+                  src="https://indieorbit.in/badge.svg"
                   alt="Featured on IndieOrbit"
                   width={180}
                   height={65}
