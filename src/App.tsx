@@ -1144,7 +1144,7 @@ export default function App() {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="https://indieorbit.in/badge.svg"
+                  src="https://indieorbit.in/favicon.png"
                   alt="Featured on IndieOrbit"
                   width={180}
                   height={65}
