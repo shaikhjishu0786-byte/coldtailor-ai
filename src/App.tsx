@@ -1143,15 +1143,11 @@ export default function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src="https://indieorbit.in/favicon.png"
-                  alt="Featured on IndieOrbit"
-                  width={180}
-                  height={65}
-                  loading="lazy"
-                  decoding="async"
-                  className="inline-block border-0 max-w-[180px] h-auto transition-transform hover:scale-105"
-                />
+               <img
+  src="https://indieorbit.in/favicon.png"
+  alt="Featured on IndieOrbit"
+  className="h-12 w-auto object-contain"
+/>
               </a>
             </div>
           </div>
