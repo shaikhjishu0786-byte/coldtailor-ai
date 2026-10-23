@@ -1138,17 +1138,22 @@ export default function App() {
               </a>
 
               {/* IndieOrbit Badge */}
-              <a
-                href="https://indieorbit.in"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-               <img
-  src="https://indieorbit.in/favicon.png"
-  alt="Featured on IndieOrbit"
-  className="h-12 w-auto object-contain"
-/>
-              </a>
+              <a 
+  href="https://indieorbit.in" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white border border-emerald-500/30 shadow-md transition-transform hover:scale-105"
+>
+  <img 
+    src="https://indieorbit.in/logo.png" 
+    alt="IndieOrbit" 
+    className="h-6 w-auto object-contain shrink-0" 
+  />
+  <div className="text-left leading-tight">
+    <p className="text-[9px] font-extrabold text-emerald-600 uppercase tracking-wider">FEATURED ON</p>
+    <p className="text-sm font-extrabold text-slate-900">IndieOrbit</p>
+  </div>
+</a>
             </div>
           </div>
         </footer>
